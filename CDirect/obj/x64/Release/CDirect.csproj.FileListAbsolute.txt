@@ -1,0 +1,8 @@
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\bin\x64\Release\CDirect.exe
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\bin\x64\Release\CDirect.pdb
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\obj\x64\Release\CDirect.Form1.resources
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\obj\x64\Release\CDirect.Properties.Resources.resources
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\obj\x64\Release\CDirect.csproj.GenerateResource.cache
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\obj\x64\Release\CDirect.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\obj\x64\Release\CDirect.exe
+C:\Users\Admin\Source\Repos\Fractvival\CDirect\CDirect\obj\x64\Release\CDirect.pdb
