@@ -60,10 +60,12 @@ namespace CDirect
         public static UInt32 deltaTick = 0;
         public static UInt32 deltaSaveTime = 0;
         public static UInt32 deltaAutoRestart = 0;
-        public static UInt32 timeType = 0;
-        public static UInt32 timeTypeDelta0 = 0;
-        public static UInt32 timeTypeDelta1 = 0;
-        public static UInt32 saveTimeTypeDelta0 = 0;
+        public static UInt32 timeType = 0; // Typ casu, 0 = denni, 1 = nocni
+        public static UInt32 timeTypeDelta0 = 0; // pocet zasilek na denni
+        public static UInt32 timeTypeDelta1 = 0; // pocet zasilek na nocni
+        public static UInt32 saveTimeTypeDelta0 = 0; // ulozene pocty zasilek z denni smeny
+        public static bool newDay = false; 
+        public static bool writeDay = false;
         public static String saveDate = "";
 
         // Inicializace hlavniho formulare
@@ -765,33 +767,47 @@ namespace CDirect
                 // Prevedu na cislo, tedy pocet hodin * 60 + minuty
                 int timeValue = (nowTime.Hour * 60) + nowTime.Minute;
                 // a provedu urceni casoveho rozmezi...
+                // 360 - 989 == 6 - 16:30
                 if ( (timeValue >= 360) && (timeValue <= 989) )
                 {
-                    timeType = 0;
+                    timeType = 0; // cas je v rozmezi 6:00-16:30, cili DEN
                 }
                 else
                 {
-                    timeType = 1;
+                    timeType = 1; // cas mimo 6:00-16:30, cili NOC
                 }
 
-
+                // pokud je v rozmezi
                 if ( timeType == 0 )
                 {
-                    if ( timeTypeDelta1 > 0 )
+                    // pokud writeDay == true, tak zmen na FALSE
+                    // pokud writeDay == true tak to znamena ze predchozi denni byla uz zapsana, zmenime na FALSE aby se pri prechodu na noc zase zapsala
+                    if (writeDay)
+                        writeDay = false;
+                    //if ( timeTypeDelta1 > 0 )
+                    // A pokud je NewDay == true
+                    if ( newDay )
                     {
-                        SavePackets1();
-                        timeTypeDelta1 = 0;
-                        saveTimeTypeDelta0 = 0;
-                        saveDate = DateTime.Now.ToString("dd_MM_yyyy");
+                        SavePackets1(); // ULOZ pocty z nocni smeny
+                        timeTypeDelta1 = 0; // nastav pocty zasilek nocni smeny na 0
+                        saveTimeTypeDelta0 = 0; // nastav ulozene pocty zasilek denni smeny na 0
+                        newDay = false; // tim jsme se vyporadali s novym dnem
+                        saveDate = DateTime.Now.ToString("dd_MM_yyyy"); // zmenit datum na nove
                     }
                 }
+                // jinak pokud neni v rozmezi
                 else
                 {
-                    if (timeTypeDelta0 > 0)
+                    // jestlize neni newDay == TRUE, ucin tak
+                    // tim se zajisti, ze pokud opet vstoupi do rozsahu, provede zmenu data a zapise nocni smenu predchoziho dne.
+                    if (!newDay)
+                        newDay = true;
+                    if ( !writeDay ) // pokud neni jeste zapsana denni smena, ucin tak
                     {
-                        SavePackets0();
-                        saveTimeTypeDelta0 = timeTypeDelta0;
-                        timeTypeDelta0 = 0;
+                        SavePackets0(); // ULOZ pocty denni smeny
+                        saveTimeTypeDelta0 = timeTypeDelta0; // nastav do pomocne promenne pro "ulozeni poctu denni smeny" pocet zasilek denni smeny
+                        timeTypeDelta0 = 0; // vymaz pocty denni smeny
+                        writeDay = true; // tim jsme se vyporadali s ukoncenim denni smeny
                     }
                 }
 

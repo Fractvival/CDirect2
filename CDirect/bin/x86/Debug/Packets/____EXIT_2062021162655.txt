@@ -1,0 +1,3 @@
+TimeDelta0 (den)    >> 0
+TimeDelta1 (noc)    >> 0
+saveTimeTypeDelta0  >> 0
