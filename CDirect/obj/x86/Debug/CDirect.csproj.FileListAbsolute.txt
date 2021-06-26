@@ -16,3 +16,11 @@ C:\Users\Admin\Source\Repos\Fractvival\CDirect2\CDirect\obj\x86\Debug\CDirect.cs
 C:\Users\Admin\Source\Repos\Fractvival\CDirect2\CDirect\obj\x86\Debug\CDirect.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Source\Repos\Fractvival\CDirect2\CDirect\obj\x86\Debug\CDirect.exe
 C:\Users\Admin\Source\Repos\Fractvival\CDirect2\CDirect\obj\x86\Debug\CDirect.pdb
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\bin\x86\Debug\CDirect.exe
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\bin\x86\Debug\CDirect.pdb
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\obj\x86\Debug\CDirect.Form1.resources
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\obj\x86\Debug\CDirect.Properties.Resources.resources
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\obj\x86\Debug\CDirect.csproj.GenerateResource.cache
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\obj\x86\Debug\CDirect.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\obj\x86\Debug\CDirect.exe
+C:\Users\Admin\Source\Repos\CDirect2\CDirect\obj\x86\Debug\CDirect.pdb

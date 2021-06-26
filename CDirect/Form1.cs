@@ -503,7 +503,7 @@ namespace CDirect
             timer1.Interval = 25;
             // zapnout casovac ted!
             timer1.Start();
-            saveDate = DateTime.Now.ToString("dd_MM_yyyy");
+            saveDate = DateTime.Now.ToString("ddMMyyyy");
             // Nacteni veskereho nastaveni vcetne celkoveho poctu vytisknutych kodu
             LoadSetting();
 
@@ -666,8 +666,8 @@ namespace CDirect
                             // NYNI, tento soubor otevreme coby zapisovac
                 StreamWriter sw = new StreamWriter(fileName);
                 // Zapis celkovy pocet
+                sw.WriteLine("POCET ZASILEK 06:00-16:30 > " + saveTimeTypeDelta0.ToString());
                 sw.WriteLine("POCET ZASILEK 16:30-06:00 > "+timeTypeDelta1.ToString());
-                sw.WriteLine("POCET ZASILEK 06:00-16:30 > "+saveTimeTypeDelta0.ToString());
                 sw.WriteLine(" ");
                 sw.WriteLine("CELKEM DEN I NOC:  "+ (timeTypeDelta1 + saveTimeTypeDelta0).ToString());
                 // po skonceni zapisu soubor zavreme
@@ -792,7 +792,7 @@ namespace CDirect
                         timeTypeDelta1 = 0; // nastav pocty zasilek nocni smeny na 0
                         saveTimeTypeDelta0 = 0; // nastav ulozene pocty zasilek denni smeny na 0
                         newDay = false; // tim jsme se vyporadali s novym dnem
-                        saveDate = DateTime.Now.ToString("dd_MM_yyyy"); // zmenit datum na nove
+                        saveDate = DateTime.Now.ToString("ddMMyyyy"); // zmenit datum na nove
                     }
                 }
                 // jinak pokud neni v rozmezi
